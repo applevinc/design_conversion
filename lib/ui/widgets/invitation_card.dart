@@ -1,17 +1,18 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/assets/images.dart';
-import 'package:flutter_application_1/core/constants/spacing.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InvitationCard extends StatelessWidget {
   const InvitationCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    const textHeight = 1.3;
+
     return Container(
-      width: 92.w,
-      padding: EdgeInsets.all(horizontalSpace),
+      width: 335.w,
+      padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
       decoration: BoxDecoration(
         color: const Color(0xff079300),
         boxShadow: [
@@ -33,22 +34,26 @@ class InvitationCard extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(AppImages.cup),
-          SizedBox(width: 2.w),
+          SizedBox(width: 12.w),
           Flexible(
             child: RichText(
               text: TextSpan(
                 text: 'Congratulations ',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       fontWeight: FontWeight.w700,
                       color: Colors.white,
+                      fontSize: 13.sp,
+                      height: textHeight,
                     ),
                 children: <TextSpan>[
                   TextSpan(
                     text:
                         'you are have been invited to be matched with a client for cleaning service.',
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           fontWeight: FontWeight.w300,
                           color: Colors.white,
+                          fontSize: 13.sp,
+                          height: textHeight,
                         ),
                   ),
                 ],
@@ -60,16 +65,21 @@ class InvitationCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              DottedBorder(
-                padding: EdgeInsets.all(horizontalSpace / 2),
-                radius: const Radius.circular(15),
-                strokeWidth: 2,
-                color: Colors.white,
-                child: Text(
-                  '02:45:05',
-                  style: Theme.of(context).textTheme.caption!.copyWith(
-                        color: Colors.white,
-                      ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: DottedBorder(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+                  borderType: BorderType.RRect,
+                  radius: const Radius.circular(5),
+                  dashPattern: const [4, 3],
+                  strokeWidth: 2,
+                  color: Colors.white,
+                  child: Text(
+                    '02:45:05',
+                    style: Theme.of(context).textTheme.caption!.copyWith(
+                          color: Colors.white,
+                        ),
+                  ),
                 ),
               ),
               GestureDetector(
@@ -79,6 +89,7 @@ class InvitationCard extends StatelessWidget {
                   style: Theme.of(context).textTheme.button!.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
+                        fontSize: 13.sp,
                       ),
                 ),
               ),

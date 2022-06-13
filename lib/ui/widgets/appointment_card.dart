@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/assets/images.dart';
 import 'package:flutter_application_1/core/constants/spacing.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppointmentCard extends StatelessWidget {
-  const AppointmentCard({Key? key}) : super(key: key);
+  const AppointmentCard(this.index, {Key? key}) : super(key: key);
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 335.w,
       decoration: BoxDecoration(
         border: Border.all(color: const Color(0xffBBC1C7)),
         borderRadius: BorderRadius.circular(5),
@@ -15,25 +19,28 @@ class AppointmentCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: EdgeInsets.only(
-              top: verticalSpace,
-              right: horizontalSpace,
-              left: horizontalSpace,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const _ServiceTitleSection(),
-                SizedBox(height: gap),
-                const _AppointmentTime(),
-                SizedBox(height: gap),
-                const _ProviderInfoSection(),
-              ],
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: 25.5.h,
+                right: 20.w,
+                left: 20.w,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const _ServiceTitleSection(),
+                  SizedBox(height: gap),
+                  const _AppointmentTime(),
+                  SizedBox(height: gap),
+                  const _ProviderInfoSection(),
+                ],
+              ),
             ),
           ),
           Container(
-            width: double.infinity,
+            width: 335.w,
             color: const Color(0xff1C71B7).withOpacity(.15),
             padding: EdgeInsets.symmetric(
               horizontal: horizontalSpace,
@@ -41,7 +48,7 @@ class AppointmentCard extends StatelessWidget {
             ),
             alignment: Alignment.centerRight,
             child: Text(
-              '2/3',
+              '${index + 1}/3',
               style: Theme.of(context)
                   .textTheme
                   .titleSmall!
@@ -141,7 +148,7 @@ class _ProviderInfoSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          padding: EdgeInsets.all(horizontalSpace),
+          padding: EdgeInsets.symmetric(horizontal: 11.w, vertical: 10.88.h),
           decoration: BoxDecoration(
             color: const Color(0xffF4F4F4),
             borderRadius: BorderRadius.circular(5),
@@ -222,7 +229,7 @@ class _ValueColumn extends StatelessWidget {
               .titleSmall!
               .copyWith(fontWeight: FontWeight.w300),
         ),
-        SizedBox(height: gap / 2),
+        SizedBox(height: 8.h),
         Text(
           value,
           style: Theme.of(context)

@@ -6,18 +6,18 @@ import 'package:flutter_application_1/core/constants/spacing.dart';
 import 'package:flutter_application_1/ui/widgets/account_setup_card.dart';
 import 'package:flutter_application_1/ui/widgets/appointment_card.dart';
 import 'package:flutter_application_1/ui/widgets/invitation_card.dart';
+import 'package:flutter_application_1/ui/widgets/stat_chip_buttons.dart';
 import 'package:flutter_application_1/ui/widgets/stats_card.dart';
-import 'package:flutter_application_1/ui/widgets/stats_chip.dart';
 import 'package:flutter_application_1/ui/widgets/title_text.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sizer/sizer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final space = gap * 2;
+    final space = gap + 4;
 
     return Scaffold(
       backgroundColor: const Color(0xffF8FDFF),
@@ -35,8 +35,9 @@ class HomeScreen extends StatelessWidget {
         ),
         title: SvgPicture.asset(
           AppIcons.logo,
-          height: 3.h,
-          width: 5.w,
+          height: 21.h,
+          width: 69.w,
+          fit: BoxFit.cover,
         ),
       ),
       body: SafeArea(
@@ -52,7 +53,7 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: space),
               const _AppointmentSection(),
               SizedBox(height: space),
-              const _StatsSection(),
+              const _MyStatsSection(),
               SizedBox(height: space),
               const _WebinarSection(),
               SizedBox(height: space),
@@ -83,7 +84,7 @@ class _InvitationCardSection extends StatelessWidget {
         ),
         SizedBox(height: gap / 2),
         SizedBox(
-          height: 11.h,
+          height: 113.h,
           child: ListView.separated(
             itemCount: 2,
             scrollDirection: Axis.horizontal,
@@ -93,7 +94,7 @@ class _InvitationCardSection extends StatelessWidget {
               return const InvitationCard();
             },
             separatorBuilder: (context, index) {
-              return SizedBox(width: horizontalSpace);
+              return SizedBox(width: 12.w);
             },
           ),
         ),
@@ -110,7 +111,7 @@ class _EarningsSection extends StatelessWidget {
     const color = Color(0xff1C71B7);
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: horizontalSpace),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 14.5.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -135,7 +136,7 @@ class _EarningsSection extends StatelessWidget {
                           .titleMedium!
                           .copyWith(color: Colors.white, fontWeight: FontWeight.w300),
                     ),
-                    SizedBox(height: gap / 2),
+                    SizedBox(height: 6.h),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -144,6 +145,8 @@ class _EarningsSection extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
+                                letterSpacing: 1.2,
+                                fontSize: 22.sp,
                               ),
                         ),
                         Text(
@@ -151,6 +154,8 @@ class _EarningsSection extends StatelessWidget {
                           style: Theme.of(context).textTheme.headline5!.copyWith(
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
+                                letterSpacing: 1.2,
+                                fontSize: 25.sp,
                               ),
                         ),
                       ],
@@ -160,6 +165,7 @@ class _EarningsSection extends StatelessWidget {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
+                    elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18.0),
                     ),
@@ -169,6 +175,7 @@ class _EarningsSection extends StatelessWidget {
                     'Withdraw',
                     style: Theme.of(context).textTheme.button!.copyWith(
                           color: color,
+                          fontSize: 15.sp,
                         ),
                   ),
                 ),
@@ -186,11 +193,12 @@ class _AppointmentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: horizontalSpace),
-      child: Column(
-        children: [
-          Row(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: horizontalSpace),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const TitleText('Appointments'),
@@ -205,16 +213,30 @@ class _AppointmentSection extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: gap / 2),
-          const AppointmentCard(),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: 270.h,
+          child: ListView.separated(
+            itemCount: 3,
+            shrinkWrap: true,
+            physics: const BouncingScrollPhysics(),
+            scrollDirection: Axis.horizontal,
+            padding: EdgeInsets.symmetric(horizontal: horizontalSpace),
+            itemBuilder: (context, index) {
+              return AppointmentCard(index);
+            },
+            separatorBuilder: (context, index) {
+              return SizedBox(width: 20.w);
+            },
+          ),
+        ),
+      ],
     );
   }
 }
 
-class _StatsSection extends StatelessWidget {
-  const _StatsSection({Key? key}) : super(key: key);
+class _MyStatsSection extends StatelessWidget {
+  const _MyStatsSection({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -226,21 +248,7 @@ class _StatsSection extends StatelessWidget {
           child: const TitleText('My Stat'),
         ),
         SizedBox(height: gap),
-        SizedBox(
-          height: 5.h,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemCount: 5,
-            padding: EdgeInsets.symmetric(horizontal: horizontalSpace),
-            physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) {
-              return StatChip(index);
-            },
-            separatorBuilder: (context, index) {
-              return SizedBox(width: horizontalSpace / 2);
-            },
-          ),
-        ),
+        const StatChipButtons(),
         SizedBox(height: gap),
         const StatsCard(),
       ],
@@ -278,14 +286,18 @@ class _WebinarSection extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(horizontalSpace),
+            padding: EdgeInsets.all(15.sp),
             decoration: const BoxDecoration(
               color: Color(0xff000793),
               shape: BoxShape.circle,
             ),
-            child: SvgPicture.asset(AppIcons.videoCamera),
+            child: SvgPicture.asset(
+              AppIcons.videoCamera,
+              height: 25.h,
+              width: 25.w,
+            ),
           ),
-          SizedBox(width: 2.w),
+          SizedBox(width: 8.w),
           Expanded(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -293,14 +305,16 @@ class _WebinarSection extends StatelessWidget {
               children: [
                 Text(
                   'Attend Webiner',
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         fontWeight: FontWeight.w700,
+                        fontSize: 15.sp,
                       ),
                 ),
                 Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         fontWeight: FontWeight.w300,
+                        fontSize: 11.sp,
                       ),
                 ),
               ],
@@ -341,27 +355,34 @@ class _UpgradeAlertSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(
-            'Upgrade plan and Get More Invite to Match',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+          SizedBox(
+            width: 262.w,
+            child: Text(
+              'Upgrade plan and Get More Invite to Match',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+            ),
           ),
           SizedBox(height: gap / 4),
-          Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit dolor sit amet, dolor sit amet, consect nsect. ',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  fontWeight: FontWeight.w300,
-                ),
+          SizedBox(
+            width: 218.w,
+            child: Text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit dolor sit amet, dolor sit amet, consect nsect. ',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 11.sp,
+                  ),
+            ),
           ),
           SizedBox(height: gap / 4),
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
               primary: const Color(0xff1C71B7),
-              fixedSize: Size(35.w, 5.h),
+              fixedSize: Size(159.w, 39.h),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
               ),
@@ -403,7 +424,7 @@ class _ResourceCentreSection extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 30.h,
+          height: 176.h,
           child: ListView.separated(
             itemCount: 3,
             scrollDirection: Axis.horizontal,
@@ -412,11 +433,13 @@ class _ResourceCentreSection extends StatelessWidget {
             itemBuilder: (context, index) {
               return Image.asset(
                 AppImages.articleImage,
-                fit: BoxFit.cover,
+                // height: 176.h,
+                // width: 156.w,
+                fit: BoxFit.fill,
               );
             },
             separatorBuilder: (context, index) {
-              return SizedBox(width: horizontalSpace);
+              return SizedBox(width: 16.w);
             },
           ),
         ),

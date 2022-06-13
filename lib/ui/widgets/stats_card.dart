@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/assets/images.dart';
 import 'package:flutter_application_1/core/constants/spacing.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class StatsCard extends StatelessWidget {
@@ -103,7 +103,7 @@ class _ChartView2State extends State<_ChartView2> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30.h,
+      height: 250.h,
       child: SfCartesianChart(
         primaryXAxis: NumericAxis(title: AxisTitle(text: 'April')),
         primaryYAxis: NumericAxis(isVisible: false),
@@ -196,7 +196,7 @@ class _SummaryTile extends StatelessWidget {
         Row(
           children: [
             const _Dot(),
-            SizedBox(width: 1.w),
+            SizedBox(width: 4.w),
             Text(
               label,
               style: Theme.of(context)
@@ -215,7 +215,7 @@ class _SummaryTile extends StatelessWidget {
                   .titleSmall!
                   .copyWith(fontWeight: FontWeight.w700),
             ),
-            SizedBox(width: 1.w),
+            SizedBox(width: 5.w),
             Image.asset(AppImages.arrow),
             Text(
               '70%',
@@ -237,8 +237,8 @@ class _Dot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 2.h,
-      width: 2.w,
+      height: 6.h,
+      width: 6.w,
       decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: Color(0xff1C71B7),
