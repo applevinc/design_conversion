@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/core/assets/icons.dart';
+import 'package:flutter_application_1/core/assets/images.dart';
 import 'package:flutter_application_1/core/constants/spacing.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
 
 class AccountSetUpCard extends StatelessWidget {
@@ -52,8 +51,8 @@ class AccountSetUpCard extends StatelessWidget {
           Positioned(
             bottom: 0,
             right: 5,
-            child: SvgPicture.asset(
-              AppIcons.accountSetUp,
+            child: Image.asset(
+              AppImages.accSetUp,
               height: 10.h,
             ),
           ),

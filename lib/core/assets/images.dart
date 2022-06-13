@@ -5,4 +5,5 @@ class AppImages {
   static const articleImage = 'assets/images/article_img.png';
   static const smallAvatar = 'assets/images/small_avatar.png';
   static const arrow = 'assets/images/arrow.png';
+  static const accSetUp = 'assets/images/account_setup.png';
 }
