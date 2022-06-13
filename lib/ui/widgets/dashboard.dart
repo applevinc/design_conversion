@@ -4,6 +4,7 @@ import 'package:flutter_application_1/ui/screens/appointments/appointments_scree
 import 'package:flutter_application_1/ui/screens/home/home_screen.dart';
 import 'package:flutter_application_1/ui/screens/more/more_screen.dart';
 import 'package:flutter_application_1/ui/screens/tips/tips_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DashboardView extends StatefulWidget {
@@ -40,8 +41,12 @@ class _DashboardViewState extends State<DashboardView> {
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
         selectedItemColor: const Color(0xff1C71B7),
-        selectedLabelStyle: Theme.of(context).textTheme.titleSmall,
-        unselectedLabelStyle: Theme.of(context).textTheme.titleSmall,
+        selectedLabelStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+              fontSize: 13.sp,
+            ),
+        unselectedLabelStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+              fontSize: 13.sp,
+            ),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Padding(

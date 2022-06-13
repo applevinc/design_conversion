@@ -26,28 +26,29 @@ class StatsCard extends StatelessWidget {
         children: [
           Text(
             'Appointment',
-            style: Theme.of(context)
-                .textTheme
-                .titleSmall!
-                .copyWith(fontWeight: FontWeight.w300),
+            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 13.sp,
+                ),
           ),
           Row(
             children: [
               Text(
                 'N5,000',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall!
-                    .copyWith(fontWeight: FontWeight.w700),
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 15.sp,
+                    ),
               ),
-              SizedBox(width: 2.w),
+              SizedBox(width: 5.w),
               Image.asset(AppImages.arrow),
               Text(
                 '70%',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall!
-                    .copyWith(color: const Color(0xff079300)),
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      color: const Color(0xff079300),
+                      fontSize: 11.sp,
+                      fontWeight: FontWeight.w300,
+                    ),
               ),
             ],
           ),
@@ -199,10 +200,10 @@ class _SummaryTile extends StatelessWidget {
             SizedBox(width: 4.w),
             Text(
               label,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .copyWith(fontWeight: FontWeight.w300),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 13.sp,
+                  ),
             ),
           ],
         ),
@@ -210,19 +211,20 @@ class _SummaryTile extends StatelessWidget {
           children: [
             Text(
               '3',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 11.sp,
+                  ),
             ),
             SizedBox(width: 5.w),
             Image.asset(AppImages.arrow),
             Text(
               '70%',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .copyWith(color: const Color(0xff079300)),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: const Color(0xff079300),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 11.sp,
+                  ),
             ),
           ],
         )

@@ -13,6 +13,7 @@ class AccountSetUpCard extends StatelessWidget {
       child: Stack(
         children: [
           Container(
+            height: 120.h,
             width: double.infinity,
             padding: EdgeInsets.only(
               top: 21.h,

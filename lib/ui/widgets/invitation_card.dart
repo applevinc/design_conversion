@@ -8,7 +8,7 @@ class InvitationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const textHeight = 1.3;
+    const textHeight = 1.5;
 
     return Container(
       width: 335.w,
@@ -53,6 +53,7 @@ class InvitationCard extends StatelessWidget {
                           fontWeight: FontWeight.w300,
                           color: Colors.white,
                           fontSize: 13.sp,
+                          letterSpacing: 0.1,
                           height: textHeight,
                         ),
                   ),
@@ -78,6 +79,7 @@ class InvitationCard extends StatelessWidget {
                     '02:45:05',
                     style: Theme.of(context).textTheme.caption!.copyWith(
                           color: Colors.white,
+                          fontSize: 11.sp,
                         ),
                   ),
                 ),

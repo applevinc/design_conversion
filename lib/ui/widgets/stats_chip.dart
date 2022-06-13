@@ -18,14 +18,16 @@ class StatChip extends StatelessWidget {
       selected: chipData.isSelected,
       onSelected: onSelected,
       label: Text(chipData.label),
-      labelStyle: Theme.of(context)
-          .textTheme
-          .titleSmall!
-          .copyWith(color: chipData.isSelected ? Colors.blue : null, fontSize: 11.sp),
+      labelStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+            color: chipData.isSelected ? const Color(0xff1C71B7) : null,
+            fontSize: 11.sp,
+            fontWeight: chipData.isSelected ? FontWeight.w700 : FontWeight.w300,
+          ),
       selectedColor: const Color(0xffF8FDFF),
       backgroundColor: const Color(0xffF8FDFF),
       shape: StadiumBorder(
-        side: BorderSide(color: chipData.isSelected ? Colors.blue : Colors.black),
+        side: BorderSide(
+            color: chipData.isSelected ? const Color(0xff1C71B7) : Colors.black),
       ),
       padding: EdgeInsets.symmetric(
         horizontal: 26.5.w,

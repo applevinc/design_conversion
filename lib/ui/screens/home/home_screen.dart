@@ -6,6 +6,7 @@ import 'package:flutter_application_1/core/constants/spacing.dart';
 import 'package:flutter_application_1/ui/widgets/account_setup_card.dart';
 import 'package:flutter_application_1/ui/widgets/appointment_card.dart';
 import 'package:flutter_application_1/ui/widgets/invitation_card.dart';
+import 'package:flutter_application_1/ui/widgets/more_button.dart';
 import 'package:flutter_application_1/ui/widgets/stat_chip_buttons.dart';
 import 'package:flutter_application_1/ui/widgets/stats_card.dart';
 import 'package:flutter_application_1/ui/widgets/title_text.dart';
@@ -35,7 +36,7 @@ class HomeScreen extends StatelessWidget {
         ),
         title: SvgPicture.asset(
           AppIcons.logo,
-          height: 30.h,
+          height: 35.h,
           width: 80.w,
           fit: BoxFit.cover,
         ),
@@ -50,9 +51,9 @@ class HomeScreen extends StatelessWidget {
               const _EarningsSection(),
               SizedBox(height: space),
               const AccountSetUpCard(),
-              SizedBox(height: space),
+              SizedBox(height: 32.h),
               const _AppointmentSection(),
-              SizedBox(height: space),
+              SizedBox(height: 33.h),
               const _MyStatsSection(),
               SizedBox(height: space),
               const _WebinarSection(),
@@ -79,12 +80,12 @@ class _InvitationCardSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(top: verticalSpace * 2, left: horizontalSpace),
+          padding: EdgeInsets.only(top: verticalSpace, left: horizontalSpace),
           child: const TitleText('You have 2 invitations'),
         ),
         SizedBox(height: gap / 2),
         SizedBox(
-          height: 113.h,
+          height: 133.h,
           child: ListView.separated(
             itemCount: 2,
             scrollDirection: Axis.horizontal,
@@ -131,10 +132,11 @@ class _EarningsSection extends StatelessWidget {
                   children: [
                     Text(
                       'Available',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium!
-                          .copyWith(color: Colors.white, fontWeight: FontWeight.w300),
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w300,
+                            fontSize: 15.sp,
+                          ),
                     ),
                     SizedBox(height: 6.h),
                     Row(
@@ -146,7 +148,7 @@ class _EarningsSection extends StatelessWidget {
                                 fontWeight: FontWeight.w700,
                                 color: Colors.white,
                                 letterSpacing: 1.2,
-                                fontSize: 22.sp,
+                                fontSize: 17.sp,
                               ),
                         ),
                         Text(
@@ -202,18 +204,11 @@ class _AppointmentSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const TitleText('Appointments'),
-              TextButton(
-                onPressed: () {},
-                child: Row(
-                  children: const [
-                    Text('More'),
-                    Icon(Icons.chevron_right),
-                  ],
-                ),
-              ),
+              MoreButton(onTap: () {}),
             ],
           ),
         ),
+        SizedBox(height: 8.h),
         SizedBox(
           height: 300.h,
           child: ListView.separated(
@@ -308,6 +303,7 @@ class _WebinarSection extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         fontWeight: FontWeight.w700,
                         fontSize: 15.sp,
+                        color: const Color(0xff061725),
                       ),
                 ),
                 Text(
@@ -315,6 +311,7 @@ class _WebinarSection extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         fontWeight: FontWeight.w300,
                         fontSize: 11.sp,
+                        color: const Color(0xff061725),
                       ),
                 ),
               ],
@@ -362,6 +359,7 @@ class _UpgradeAlertSection extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontWeight: FontWeight.w700,
+                    //fontSize: 15.sp,
                   ),
             ),
           ),
@@ -389,7 +387,10 @@ class _UpgradeAlertSection extends StatelessWidget {
             ),
             child: Text(
               'Upgrade',
-              style: Theme.of(context).textTheme.button!.copyWith(color: Colors.white),
+              style: Theme.of(context).textTheme.button!.copyWith(
+                    color: Colors.white,
+                    fontSize: 15.sp,
+                  ),
             ),
           ),
         ],
@@ -406,23 +407,16 @@ class _ResourceCentreSection extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: horizontalSpace),
+          padding: EdgeInsets.only(left: horizontalSpace, right: 15.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const TitleText('Resource centre'),
-              TextButton(
-                onPressed: () {},
-                child: Row(
-                  children: const [
-                    Text('More'),
-                    Icon(Icons.chevron_right),
-                  ],
-                ),
-              ),
+              MoreButton(onTap: () {}),
             ],
           ),
         ),
+        SizedBox(height: 8.h),
         SizedBox(
           height: 176.h,
           child: ListView.separated(
@@ -433,9 +427,9 @@ class _ResourceCentreSection extends StatelessWidget {
             itemBuilder: (context, index) {
               return Image.asset(
                 AppImages.articleImage,
-                // height: 176.h,
-                // width: 156.w,
-                fit: BoxFit.fill,
+                height: 176.h,
+                //width: 156.w,
+                fit: BoxFit.contain,
               );
             },
             separatorBuilder: (context, index) {

@@ -34,7 +34,7 @@ class AppointmentCard extends StatelessWidget {
                   SizedBox(height: gap),
                   const _AppointmentTime(),
                   SizedBox(height: gap),
-                  const _ProviderInfoSection(),
+                  const _ServiceProviderInfoSection(),
                 ],
               ),
             ),
@@ -49,10 +49,11 @@ class AppointmentCard extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Text(
               '${index + 1}/3',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .copyWith(fontWeight: FontWeight.w700, color: const Color(0xff1C71B7)),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15.sp,
+                    color: const Color(0xff1C71B7),
+                  ),
             ),
           )
         ],
@@ -76,26 +77,26 @@ class _ServiceTitleSection extends StatelessWidget {
           children: [
             Text(
               'Cleaning service',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .copyWith(fontWeight: FontWeight.w700),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 15.sp,
+                  ),
             ),
             Text(
               'Deep cleaning',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .copyWith(fontWeight: FontWeight.w300),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 11.sp,
+                  ),
             ),
           ],
         ),
         Text(
           'Upcoming',
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium!
-              .copyWith(fontWeight: FontWeight.w700, color: Colors.blue),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                fontWeight: FontWeight.w700,
+                color: const Color(0xff1C71B7),
+              ),
         ),
         IconButton(
           padding: EdgeInsets.zero,
@@ -120,25 +121,25 @@ class _AppointmentTime extends StatelessWidget {
       children: [
         Text(
           'Today',
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium!
-              .copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 15.sp,
+              ),
         ),
         Text(
           '12:00 PM',
-          style: Theme.of(context)
-              .textTheme
-              .titleSmall!
-              .copyWith(fontWeight: FontWeight.w300),
+          style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                fontWeight: FontWeight.w300,
+                fontSize: 11.sp,
+              ),
         ),
       ],
     );
   }
 }
 
-class _ProviderInfoSection extends StatelessWidget {
-  const _ProviderInfoSection({
+class _ServiceProviderInfoSection extends StatelessWidget {
+  const _ServiceProviderInfoSection({
     Key? key,
   }) : super(key: key);
 
@@ -181,19 +182,19 @@ class _ProviderInfoSection extends StatelessWidget {
             ),
             Text(
               'Nkechi E.',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .copyWith(fontWeight: FontWeight.w300),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 13.sp,
+                  ),
             ),
             Row(
               children: [
                 Text(
                   '4.8(23)',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(fontWeight: FontWeight.w700),
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15.sp,
+                      ),
                 ),
                 const Icon(
                   Icons.star,
@@ -224,18 +225,20 @@ class _ValueColumn extends StatelessWidget {
       children: [
         Text(
           label,
-          style: Theme.of(context)
-              .textTheme
-              .titleSmall!
-              .copyWith(fontWeight: FontWeight.w300),
+          style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                fontWeight: FontWeight.w300,
+                fontSize: 13.sp,
+                color: const Color(0xff061725),
+              ),
         ),
         SizedBox(height: 8.h),
         Text(
           value,
-          style: Theme.of(context)
-              .textTheme
-              .titleSmall!
-              .copyWith(fontWeight: FontWeight.w700),
+          style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                fontWeight: FontWeight.w700,
+                fontSize: 15.sp,
+                color: const Color(0xff061725),
+              ),
         ),
       ],
     );
