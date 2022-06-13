@@ -48,7 +48,7 @@ class ChoiceChips {
   static final all = <ChoiceChipData>[
     ChoiceChipData(
       label: 'Today',
-      isSelected: false,
+      isSelected: true,
       selectedColor: Colors.blue,
       textColor: Colors.white,
     ),

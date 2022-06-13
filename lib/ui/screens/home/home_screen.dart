@@ -35,8 +35,8 @@ class HomeScreen extends StatelessWidget {
         ),
         title: SvgPicture.asset(
           AppIcons.logo,
-          height: 21.h,
-          width: 69.w,
+          height: 30.h,
+          width: 80.w,
           fit: BoxFit.cover,
         ),
       ),
@@ -215,7 +215,7 @@ class _AppointmentSection extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 270.h,
+          height: 300.h,
           child: ListView.separated(
             itemCount: 3,
             shrinkWrap: true,
