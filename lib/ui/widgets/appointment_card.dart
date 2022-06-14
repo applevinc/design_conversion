@@ -18,25 +18,24 @@ class AppointmentCard extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(
-                top: 25.5.h,
-                right: 20.w,
-                left: 20.w,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const _ServiceTitleSection(),
-                  SizedBox(height: gap),
-                  const _AppointmentTime(),
-                  SizedBox(height: gap),
-                  const _ServiceProviderInfoSection(),
-                ],
-              ),
+          Padding(
+            padding: EdgeInsets.only(
+              top: 25.5.h,
+              right: 20.w,
+              left: 20.w,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const _ServiceTitleSection(),
+                SizedBox(height: 16.h),
+                const _AppointmentTime(),
+                SizedBox(height: 16.h),
+                const _ServiceProviderInfoSection(),
+              ],
             ),
           ),
           Container(
@@ -44,7 +43,7 @@ class AppointmentCard extends StatelessWidget {
             color: const Color(0xff1C71B7).withOpacity(.15),
             padding: EdgeInsets.symmetric(
               horizontal: horizontalSpace,
-              vertical: verticalSpace / 2,
+              vertical: 2.38.h,
             ),
             alignment: Alignment.centerRight,
             child: Text(
@@ -96,6 +95,7 @@ class _ServiceTitleSection extends StatelessWidget {
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 fontWeight: FontWeight.w700,
                 color: const Color(0xff1C71B7),
+                fontSize: 13.sp,
               ),
         ),
         IconButton(
@@ -196,9 +196,10 @@ class _ServiceProviderInfoSection extends StatelessWidget {
                         fontSize: 15.sp,
                       ),
                 ),
-                const Icon(
+                Icon(
                   Icons.star,
-                  color: Color(0xffF4B400),
+                  color: const Color(0xffF4B400),
+                  size: 16.sp,
                 ),
               ],
             ),

@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final space = gap + 4;
+    final space = gap + 4.h;
 
     return Scaffold(
       backgroundColor: const Color(0xffF8FDFF),
@@ -75,6 +75,8 @@ class _InvitationCardSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +87,7 @@ class _InvitationCardSection extends StatelessWidget {
         ),
         SizedBox(height: gap / 2),
         SizedBox(
-          height: 133.h,
+          height: size.width < 350 ? size.height * 0.12 : size.height * 0.15,
           child: ListView.separated(
             itemCount: 2,
             scrollDirection: Axis.horizontal,
@@ -195,6 +197,8 @@ class _AppointmentSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -210,7 +214,7 @@ class _AppointmentSection extends StatelessWidget {
         ),
         SizedBox(height: 8.h),
         SizedBox(
-          height: 300.h,
+          height: size.width < 350 ? size.height * 0.27 : size.height * 0.335,
           child: ListView.separated(
             itemCount: 3,
             shrinkWrap: true,

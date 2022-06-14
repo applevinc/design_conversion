@@ -8,12 +8,14 @@ class AccountSetUpCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: horizontalSpace),
       child: Stack(
         children: [
           Container(
-            height: 120.h,
+            height: size.height * 0.15,
             width: double.infinity,
             padding: EdgeInsets.only(
               top: 21.h,

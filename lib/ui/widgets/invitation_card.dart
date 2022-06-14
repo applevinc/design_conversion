@@ -32,8 +32,12 @@ class InvitationCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(AppImages.cup),
+          Align(
+            alignment: Alignment.center,
+            child: Image.asset(AppImages.cup),
+          ),
           SizedBox(width: 12.w),
           Flexible(
             child: RichText(
